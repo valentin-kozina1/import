@@ -210,7 +210,8 @@ img {
 }
 
 .for-you-why {
-    width: 300px;
+    min-width: 300px;
+    width: 600px;
     font-weight: 300;
     line-height: 30px;
     font-size: 17px;
