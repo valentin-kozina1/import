@@ -195,6 +195,7 @@ img {
 }
 
 .for-you-import {
+    min-width: 300px;
     font-weight: 700;
     line-height: 30px;
     font-size: 26px;
@@ -203,6 +204,7 @@ img {
 }
 
 .for-you-from {
+    min-width: 300px;
     font-weight: 400;
     line-height: 30px;
     font-size: 26px;
