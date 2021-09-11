@@ -228,7 +228,6 @@ img {
 .for-you-cause-mobile {
     display: flex;
     flex-direction: row;
-    /*justify-content: space-between;*/
     margin-top: 40px;
     width: 100%;
 }
@@ -237,8 +236,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: flex-start;  
-    margin-left: 10px;
-    margin-right: 10px; 
+    margin-right: 20px; 
 }
 
 .for-you-cause-definite-logo {
