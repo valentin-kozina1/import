@@ -30,8 +30,11 @@ body {
   }
 
 .front {
-    background: var(--c-black) url(../img/background-planet.png) ;
-    
+    background: var(--c-black) url(../img/background-planet.png) ;   
+}
+
+img {
+    max-width: 100%;
 }
 
 .desktop {
