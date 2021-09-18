@@ -1,3 +1,6 @@
+
+/*проверяем правильность заполнения полей в форме обратной связи*/
+
 const callback= document.querySelector('.feedback-container');
 const userName = document.querySelector('#userName');
 const userPhone = document.querySelector('#userPhone');

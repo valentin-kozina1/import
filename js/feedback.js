@@ -1,3 +1,6 @@
+
+/*функционал кнопок (обратная связь и меню страницы)*/
+
 let	modals_btn = document.getElementsByClassName('callback');
 let	burger	= document.getElementById('burger');
 let feedback = document.querySelector('.feedback-container');

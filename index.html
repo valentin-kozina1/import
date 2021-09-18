@@ -5,6 +5,7 @@
 	<style></style>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/wave.css">
 	<!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/stars.css">
 	не крутится страница при подключении этой анимации -->
@@ -217,8 +218,11 @@
 					</div>			
 				</div>
 				<div class="negotiation-foto">
-					<div class="negotiation-foto-first">
-						<img src="img/negotiation-foto.jpg">
+					<div class="negotiation-foto-first canvas-wrap">
+						<div id="canvas"></div>
+    					<div class="plane">
+    						<img data-sampler="texture0" id="texture0" src="img/negotiation-foto.jpg" crossorigin="anonymous">  <!--  -->
+    					</div>						
 						<div class="negotiation-foto-text">
 							<span>Переговоры <br>с поставщиками</span>
 						</div>
@@ -412,5 +416,7 @@
 
 	<script type="" src="js/callback-form.js"></script>
 	<script type="" src="js/feedback.js"></script>
+	<script type="" src="js/curtains.min.js"></script>
+	<script type="" src="js/wave.js"></script>
 </body>
 </html>
