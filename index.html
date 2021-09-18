@@ -3,23 +3,34 @@
 	<title>IMPORT FROM RUSSIA</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style></style>
-	<link rel="stylesheet" type="text/css" href="css/style.css">  
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/stars.css">
+	не крутится страница при подключении этой анимации -->
 </head>
 <body>
-	<section class="front">
+
+	<!-- не крутится страница при подключении этой анимации
+	<div id='stars'></div> 
+	<div id='stars2'></div>
+	<div id='stars3'></div> -->
+
+
+	<section class="front" id="front">
 		<div class="container">
-			<div class="front-navigation">
-				<div class="front-burger">
+			<nav class="front-navigation">
+				<div class="front-burger" id="burger">
 					<i></i>
 				</div>
 				<div class="front-logo">
 					<span class="front-logo-name">GLOBAL SUPPLY</span>
 					<span class="front-logo-type">HOLDING</span>
 				</div>
-				<div class="front-telephone">
+				<div class="front-telephone callback">
 					<img src="img/Vector 32.png">
 				</div>
-			</div>
+			</nav>
 			<div class="front-heading-name">
 				<span>
 					Поставка товаров		
@@ -35,13 +46,13 @@
 					Доставка товаров из России в Беларусь - это наша основная специализация.
 				</span>
 			</div>
-			<button class="consultation front-consultation">
+			<button class="consultation front-consultation callback">
 				<span>Консультация</span>
 			</button>
 		</div>
 	</section>
 
-	<section class="for-you">
+	<section class="for-you" id="for-you">
 		<div class="container">
 			<div class="for-you-main">
 				<div class="for-you-import">
@@ -95,7 +106,7 @@
 		</div>		
 	</section>
 
-	<section class="">
+	<section class="" id="favourite-business">
 		<div class="container">
 			<div class="favourite-business">
 				<div class="favourite-business-foto">
@@ -114,7 +125,7 @@
 					<div class="favourite-business-econom">
 						<span>Получайте российский товар сразу по беларусским накладным с уже включенным НДС!</span>
 					</div>
-					<button class="consultation favourite-business-consultation">
+					<button class="consultation favourite-business-consultation callback">
 						<span>Консультация</span>
 					</button>
 				</div>
@@ -122,7 +133,7 @@
 		</div>
 	</section>
 
-	<section class="scheme-of-work">
+	<section class="scheme-of-work" id="scheme-of-work">
 		<div class="container">
 			<div class="scheme-of-work-head">
 				<span class="scheme-of-work-head-a">Схема работы</span>
@@ -192,7 +203,7 @@
 		</div>		
 	</section>
 
-	<section class="negotiation">
+	<section class="negotiation" id="negotiation">
 		<div class="container">
 			<div class="container-negotiation">
 				<div class="negotiation-head">
@@ -252,7 +263,7 @@
 		</div>
 	</section>
 
-	<section class="must-have">
+	<section class="must-have" id="must-have">
 		<div class="container">
 			<div class="container-must-have">
 				<span class="must-have-heading">что для этого нужно</span>
@@ -295,7 +306,7 @@
 	</section>
 
 	<!-- CONTACTS -->
-	<section class="contacts">
+	<section class="contacts" id="contacts">
 		<div class="container">
 			<div class="container-contacts">
 				<div class="container-contacts-text">
@@ -325,7 +336,7 @@
 							<span class="contacts-adress-definite-name">+7 499 404-25-45</span>
 						</div>
 					</div>
-					<button class="consultation contacts-consultation">
+					<button class="consultation contacts-consultation callback">
 						<span>Перезвоните мне</span>
 					</button>
 					<div class="contacts-adress">
@@ -363,27 +374,43 @@
 
 	<!-- MODALS -->
 
+		<div class="modal nonactive">
+			<i class="fa fa-times modal-close-btn-menu" id="mobile-menu-btn"></i>
+			<a href="#front">Главная</a>
+			<a href="#for-you">Ваш импорт</a>
+			<a href="#favourite-business">О нас</a>
+			<a href="#scheme-of-work">Схема работы</a>
+			<a href="#must-have">Что для этого нужно</a>
+			<a href="#negotiation">Мы берем на себя</a>
+			<a href="#contacts">Контакты</a>
+		</div>
+			
+
 	<div class="feedback-container nonactive">
-					<div class="feedback-container-representative">
-						<img src="img/feedback-input-foto.jpg">
-						<div class="feedback-container-representative-name">
-							<span class="feedback-container-representative-fio">Кухарев</span>
-							<span class="feedback-container-representative-fio">Роман</span>
-							<span class="feedback-container-representative-fio">Александрович</span>
-							<span class="feedback-container-representative-prof">Представитель</span>
-							<span class="feedback-container-representative-prof">в Нижегородской</span>
-							<span class="feedback-container-representative-prof">области</span>
-						</div>
+		<div class="feedback-container-representative">
+			<i class="fa fa-times modal-close-btn" id="feedback_exit"></i>
+			<img src="img/feedback-input-foto.jpg">
+			<div class="feedback-container-representative-name">
+
+				<div class="feedback-container-representative-name-fio">
+					<span class="feedback-container-representative-fio mobile">Кухарев<br>Роман<br>Александрович</span>
+					<span class="feedback-container-representative-fio desktop">Кухарев Роман Александрович</span>
+				</div>
+							
+				<span class="feedback-container-representative-prof">Представитель в Нижегородской области</span>
+			</div>
 					</div>
 					<form  class="callback-form-container" action="">
-						<input class="callback-form-input" type="text" name="name" placeholder="Ваше имя...">
-						<input class="callback-form-input" type="text" name="telephone" placeholder="Телефон...">
-						<input class="callback-form-input" type="text" name="komments" placeholder="Комментарий...">
-						<button class="consultation callback-form">
+						<input class="callback-form-input" type="text" name="userName" id="userName" placeholder="Ваше имя...">
+						<input class="callback-form-input" type="text" id="userPhone" name="userPhone" placeholder="Телефон...">
+						<input class="callback-form-input" type="text" name="komments" id="komments" placeholder="Комментарий...">
+						<button class="consultation-callback-form">
 							<span>Задать вопрос</span>
 						</button>
 					</form>					
 				</div>		
 
+	<script type="" src="js/callback-form.js"></script>
+	<script type="" src="js/feedback.js"></script>
 </body>
 </html>
