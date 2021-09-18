@@ -19,6 +19,8 @@
     /* font*/ 
     --font-main: 'Gilroy', sans-serif;;
     /*--font-main: 'Montserrat', sans-serif;*/
+
+    --animation-transition: all 0.5s ease-in-out;
 }
 
 body {
@@ -185,6 +187,7 @@ img {
     font-weight: 600;
     font-size: 15px;
     line-height: 18px;
+    transition: var(--animation-transition);
 }
 
 .consultation:hover {
@@ -830,6 +833,12 @@ img {
     line-height: 18px;
     margin-bottom: 60px;
     margin-top: 5px;
+    transition: var(--animation-transition);
+}
+
+.consultation-callback-form:hover {
+    background-color: var(--c-yellow);
+    color: var(--c-black);
 }
 
 .footer-logo {
