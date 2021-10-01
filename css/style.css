@@ -10,15 +10,11 @@
     /* text */
     --txt-c-yellow: var(--c-yellow);
     --txt-c-black: var(--c-black);
-    /*--txt-c-black-light: var(--c-black-light);
-    --txt-c-red: var(--c-red);*/
     --txt-c-white: var(--c-white);
-   /* --txt-c-green-light: var(--c-green-light);*/
 
   
     /* font*/ 
     --font-main: 'Gilroy', sans-serif;;
-    /*--font-main: 'Montserrat', sans-serif;*/
 
     --animation-transition: all 0.5s ease-in-out;
 }
@@ -447,7 +443,6 @@ img {
 }
 
 .negotiation-foto-first {
-    margin-left: 10px;
     position: relative;
 }
 
@@ -458,8 +453,6 @@ img {
 }
 
 #canvas>img{
-    /*width: 300px;
-    height: 180px;*/
     margin-left: 10px;
 }
 
@@ -575,7 +568,6 @@ img {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /*width: 300px;*/
 }
 
 .must-have-name {
@@ -627,25 +619,26 @@ img {
     width: 94%;
 }
 
-.contacts-Russia {
+.contacts-country {
     width: 50%;
     line-height: 65px;
-    border-bottom: 5px solid var(--c-yellow);
-    color: var(--c-yellow);
     text-align: left;
     align-items: center;
 }
 
-.contacts-Belarus {
-    width: 50%;
-    line-height: 65px;
+.contacts-countries-nonactive {
     border-bottom: 1px solid var(--c-white);
     color: var(--c-white);
-    text-align: left;
-    align-items: center;
+    cursor: pointer;
 }
 
-.contacts-adress {
+.contacts-countries-active {
+    border-bottom: 5px solid var(--c-yellow);
+    color: var(--c-yellow);
+    pointer-events: none;
+}
+
+.contacts-adress-Russia {
     margin-left: 10px;
     display: flex;
     flex-direction: row;
@@ -653,7 +646,21 @@ img {
     margin-top: 25px;
 }
 
-.contacts-adress>img {
+.contacts-adress-Belorus {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 92%;
+    margin-top: 25px;
+}
+
+.contacts-adress-Russia>img {
+    color: var(--c-yellow);
+    width: 19px;
+    height: 25px;
+}
+
+.contacts-adress-Belorus>img {
     color: var(--c-yellow);
     width: 19px;
     height: 25px;
@@ -696,9 +703,6 @@ img {
 .contacts-foto {
     margin-top: 60px;
     width: 100%;
-    /*display: flex;
-    flex-direction: column;
-    align-items: center;*/
 }
 
 .contacts-foto>img {
@@ -808,10 +812,8 @@ img {
   background: var(--c-black-light);
   margin-left: 5%;
   margin-top: 25px  ;
-  /*padding: 35px 30px 40px 30px;*/
   display: flex;
   flex-direction: column;
-  /*box-sizing: border-box;*/
 }
 
 .callback-form-input {
@@ -820,7 +822,6 @@ img {
   outline: none;
   padding: 10px 10px 15px 10px;
   border-bottom: 1px solid var(--c-white);
-  /*text-align: center;*/
   color:  var(--c-white);
   margin-bottom: 25px; 
 }
@@ -970,11 +971,7 @@ img {
 }
 
 .for-you-cause {
-    /*display: flex;*/
     flex-direction: row;
-    /*margin-top: 5px;
-    width: 100%;
-    margin-bottom: 80px;*/
 }
 
 .for-you-cause-mobile {
@@ -1033,7 +1030,7 @@ img {
     line-height: 66px;
     font-size: 60px;
     font-weight: 300;
-    position: static;  /*почему сработало я не понял*/
+    position: static; 
 }
 
 .favourite-business-import {
@@ -1112,14 +1109,6 @@ img {
     margin-bottom: 200px;
 }
 
-.container-negotiation {
-   /* display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    margin-top: 60px;*/
-}
-
 .negotiation-head {
     margin-left: 0;
 }
@@ -1142,12 +1131,12 @@ img {
     justify-content: space-between;
 }
 
-#canvas, #canvas2, #canvas3 {
+#canvas, #canvas1, #canvas2 {
     width: 300px;
     height: 245px;
 }
 
-#canvas>img, #canvas2>img, #canvas3>img {
+#canvas>img, #canvas1>img, #canvas2>img {
     width: 300px;
     height: 245px;
     margin-left: 0;
@@ -1172,13 +1161,8 @@ img {
     margin: 0;
 }
 
-.negotiation-foto-second {
-    width: 300px;
-    height: 245px;
-    position: relative;
-}
 
-.negotiation-foto-second-fon {
+.negotiation-foto-first-fon {
     position: absolute;
     top: 0;
     left: 0;
@@ -1316,7 +1300,6 @@ img {
 }
 
 .contacts-heading {
-    /*align-self: flex-start; */
     margin-left: 0;
     margin-bottom: 40px;
     width: 100%;
@@ -1330,13 +1313,7 @@ img {
     margin-bottom: 20px;
 }
 
-.contacts-Russia {
-    font-weight: 600;  
-    line-height: 20px;
-    font-size: 17px;
-}
-
-.contacts-Belarus {
+.contacts-country {
     font-weight: 600;  
     line-height: 20px;
     font-size: 17px;
@@ -1348,7 +1325,12 @@ img {
     font-size: 16px;
 }
 
-.contacts-adress {
+.contacts-adress-Russia {
+    margin-top: 30px;
+    margin-left: 0;
+}
+
+.contacts-adress-Belorus {
     margin-top: 30px;
     margin-left: 0;
 }

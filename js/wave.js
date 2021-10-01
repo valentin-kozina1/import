@@ -1,151 +1,234 @@
+/*class WaveGlitch {
+    constructor(
+        id,
+        src,
+        width,
+        height,
+        posX = 0,
+        posY = 0,
+        waveAmplitude = 10,
+        intensity = 2,
+        speed = 0.10,
+    ) {
+        this.src  = src
+        this.posX = posX
+        this.posY = posY
+        this.requestAnim = null
 
-/*эффект волны на фотографиях (работает вместе с 
-  библиотекой curtains.min.js и wave.css )*/
+        // get image
+        this.image     = new Image()
+        this.image.src = this.src
+        this.imgWidth  = width
+        this.imgHeight = height
 
-window.onload = () => {
-	const shader = {
-	vertex: `    
-	#ifdef GL_ES
-	precision mediump float;
-	#endif  
-	// those are the mandatory attributes that the lib sets
-	attribute vec3 aVertexPosition;
-	attribute vec2 aTextureCoord;
-	// those are mandatory uniforms that the lib sets and that contain our model view and projection matrix
-	uniform mat4 uMVMatrix;
-	uniform mat4 uPMatrix;
-	uniform mat4 texture0Matrix;
-	// if you want to pass your vertex and texture coords to the fragment shader
-	varying vec3 vVertexPosition;
-	varying vec2 vTextureCoord;
-	void main() {
-	vec3 vertexPosition = aVertexPosition;
-	gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
-	
-	// set the varyings
-	vTextureCoord = (texture0Matrix * vec4(aTextureCoord, 0., 1.)).xy;
-	vVertexPosition = vertexPosition;
-	}`,
-	fragment: `
-	#ifdef GL_ES
-	precision mediump float;
-	#endif
-	#define PI2 6.28318530718
-	#define PI 3.14159265359
-	#define TWO_PI 6.28318530718 
-	#define S(a,b,n) smoothstep(a,b,n)   
-	// get our varyings
-	varying vec3 vVertexPosition;
-	varying vec2 vTextureCoord;
-	// the uniform we declared inside our javascript
-	uniform float uTime;
-	uniform vec2 uReso;
-	uniform vec2 uMouse;
-	uniform float uVolatility;
-	// our texture sampler (default name, to use a different name please refer to the documentation)
-	uniform sampler2D texture0;
-	uniform sampler2D mapnormal; 
-	void main(){
-	// Coordinates     
-	vec2 uv = vTextureCoord;     
-	// Normalizing mouse relative with resolution
-	vec2 m = uMouse / uReso;
-	// Creating line with smoothstep
-	float distLine = sin( ( S(m.x - .1, m.x, uv.x) - S(m.x, m.x + .1, uv.x) ) * 5. / PI2 ) / 20. * uVolatility;
-	// Getting RGB colors combined with the line.
-	vec3 color = vec3 ( 
-	texture2D(texture0, vec2(uv.x + distLine * .8, uv.y)).r, 
-	texture2D(texture0, vec2(uv.x + distLine, uv.y)).g,
-	texture2D(texture0, vec2(uv.x + distLine, uv.y)).b);
-	gl_FragColor = vec4(color, 1.);           
+        // get canvas
+        this.canvas       = document.querySelector(`${ id }`)
+        this.ctx          = this.canvas.getContext('2d')  // получаем контекст canvas
+        this.canvasWidth  = this.imgWidth
+        this.canvasHeight = this.imgHeight
+        this.canvas.setAttribute('width', this.canvasWidth)   // width  === ширине img
+        this.canvas.setAttribute('height', this.canvasHeight) // height === ширине img
+
+        // cut image
+        this.imgSlice      = this.imgWidth / 2  // кол-во кусочков на которое обрезается img
+        this.imgSliceWidth = 2                  // ширина кусочка
+
+        // control animation
+        this.waveAmplitude = waveAmplitude
+        this.intensity     = intensity
+        this.speed         = 0
+        this.speedPlus     = speed
+    }
+
+    startAnimate = () => {
+        this.speed += this.speedPlus
+        this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
+
+        for (let i = 0; i <= this.imgSlice; i++) {
+            this.ctx.drawImage(
+                this.image,
+
+                i * this.imgSliceWidth - this.posX,
+                Math.sin(this.speed - (i / this.waveAmplitude)) * this.intensity,
+                this.imgSliceWidth,
+                this.imgHeight,
+
+                i * this.imgSliceWidth,
+                this.posY,
+                this.imgSliceWidth,
+                this.imgHeight,
+            )
+        }
+
+        this.requestAnim = requestAnimationFrame(this.startAnimate)
+    }
+
+    init = () => {
+        this.image.addEventListener('load', this.startAnimate)
+    }
+
+    destroy = () => {
+        // stop animation
+        cancelAnimationFrame(this.requestAnim)
+    }
+}
+
+ /*const draw = new Draw(
+ 		this.ctx.drawImage(image, 0, 0)
+ 	)*/
+    	
+
+/*const waveGlitch = new WaveGlitch(
+    '#canvas',         // id элемента, или селектор
+    'img/negotiation-foto0.jpg',   // путь до картинки(от HTML)
+    300,
+    245,
+
+    // ↓ необязательные параметры ↓
+    0,
+    0,
+    10,
+    10,
+    0.01, // значение от 0.1 до 1 (0.01, 0.001 и тд)
+)
+
+waveGlitch.init()
+
+this.canvas.onmouseover = function()
+		{ 
+			waveGlitch.init() // вызвать анимацию
+		}
+		
+
+	this.canvas.onmouseout = function()
+		{       	
+			waveGlitch.destroy();   // остановить анимацию
+		}*/
+
+
+// waveGlitch.destroy() // остановить анимацию
+// для канваса width и height установятся автоматически !
+
+
+//___________________________________________________
+
+
+let canvas = document.getElementsByClassName('canvas');
+let ctx = Array();
+let canvasWidth = canvas[0].width;
+let canvasHeight = canvas[0].height;
+let image = Array();
+let requestId;
+let k;
+let left = document.getElementById('left');
+let right = document.getElementById('right');
+let canvas_foto = document.getElementsByClassName('negotiation-foto-first');
+let speed = 0;
+let imgWidth = 300/2;
+let imgHeight = 245;
+const imageSlice = 2;   //ширина каждого анимируемого кусочка изобр 
+
+for (var i = 0; i < 3; i++) 
+{
+	ctx[i]   = canvas[i].getContext('2d'); // получаем контекст canvas
+	image[i] = new Image();  // создали новое изображение	
+	image[i].src = 'img/negotiation-foto'+i+'.jpg';
+	image[i].addEventListener('load', draw);  // загрузили изображение
+}											// вызвав ф-цию draw
+
+function draw() 
+{
+	for (var i = 0; i <= canvas.length - 1; i++) {
+		ctx[i].drawImage(image[i], 0, 0); 
+		canvas_foto[i].style.order = i
 	}
-	`
-};
-// get our canvas wrapper
-const canvasContainer = document.getElementById("canvas");
-let mouse = {
-	x: 0,
-	y: 0
-};
-let lastPos = {
-	x: 0,
-	y: 0
-};
-// set up our WebGL context and append the canvas to our wrapper
-const webGLCurtain = new Curtains("canvas");
-// get our plane element
-const planeElement = document.getElementsByClassName("plane")[0];
-// set our initial parameters (basic uniforms)
-const params = {
-	vertexShader: shader.vertex, // our vertex shader ID
-	fragmentShader: shader.fragment, // our framgent shader ID
-	widthSegments: 40,
-	heightSegments: 40, // we now have 40*40*6 = 9600 vertices !
-	alwaysDraw: true,
-	uniforms: {
-		time: {
-			name: "uTime", // uniform name that will be passed to our shaders
-			type: "1f", // this means our uniform is a float
-			value: 0
-		},
-		mousepos: {
-			name: "uMouse",
-			type: "2f",
-			value: [0, 0]
-		},
-		resolution: {
-			name: "uReso",
-			type: "2f",
-			value: [canvasContainer.offsetWidth, canvasContainer.offsetHeight]
-		},
-		volatility: {
-			name: "uVolatility", // uniform name that will be passed to our shaders
-			type: "1f", // this means our uniform is a float
-			value: 1
+}
+
+	left.onclick = function()   //карусель фотографий
+	{ 
+		for (var i = 0; i <= canvas.length-1; i++) 
+		{
+			canvas_foto[i].style.order--
+			if (canvas_foto[i].style.order<0) 
+				canvas_foto[i].style.order = canvas.length-1
+		}		
+	}
+
+	right.onclick = function()    //карусель фотографий
+	{	
+		for (var i = canvas.length - 1; i >= 0; i--) 
+		{ 
+			canvas_foto[i].style.order++
+			if (canvas_foto[i].style.order>canvas.length-1) 
+				{
+					canvas_foto[i].style.order = 0
+					canvas_foto[i].classList.remove('desktop')
+				}
+				else
+				{
+					canvas_foto[i].classList.add('desktop') 
+				}
 		}
 	}
-};
-const lerp = (a, b, n) => {
-	return n * (a - b) + b;
-};
-const map = (value, low1, high1, low2, high2) => {
-	return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-}
-const plane = webGLCurtain.addPlane(planeElement, params);
-let start = performance.now();
-plane.onRender(() => {
-	let now = performance.now();
-	const d = getDistance(mouse, lastPos) / (now - start);
-	const volatility = map(d, 1, 100, 1, 100);    
-	plane.uniforms.volatility.value = lerp(
-	volatility,
-	plane.uniforms.volatility.value,
-	0.1
-	);
-	lastPos.x = mouse.x;
-	lastPos.y = mouse.y;
-	start = now;
-	plane.uniforms.time.value += 0.01; // update our time uniform value
-	plane.uniforms.resolution.value = [canvasContainer.offsetWidth, canvasContainer.offsetHeight];
-});
-const getDistance = (v1, v2) => {
-	const x = v1.x - v2.x;
-	const y = v1.y - v2.y;
-	return Math.sqrt(x * x + y * y);
-};
-let mouse_monitor = function(e) { 
-	mouse.x = e.clientX - canvasContainer.getBoundingClientRect().left;
-	mouse.y = e.clientY - canvasContainer.getBoundingClientRect().top;  
-	plane.uniforms.mousepos.value[0] = lerp(
-	mouse.x,
-	plane.uniforms.mousepos.value[0],
-	0.1
-	);
-	plane.uniforms.mousepos.value[1] = lerp(
-	mouse.y,
-	plane.uniforms.mousepos.value[1],
-	0.1
-	);
-};  
-canvasContainer.addEventListener("mousemove", mouse_monitor); 
-};
+
+	
+		canvas[0].onmouseover = function()
+		{ 	k=0;
+			draw_wave();
+		}
+		canvas[1].onmouseover = function()
+		{ 	k=1;
+			draw_wave();
+		}
+		canvas[2].onmouseover = function()
+		{ 	k=2;
+			draw_wave();
+		}
+	
+	
+	
+		canvas[0].onmouseout = function()
+		{       	
+			cancelAnimationFrame(requestId);
+			ctx[0].drawImage(image[0], 0, 0);
+		}
+
+		canvas[1].onmouseout = function()
+		{       	
+			cancelAnimationFrame(requestId);
+			ctx[1].drawImage(image[1], 0, 0);
+		}
+
+		canvas[2].onmouseout = function()
+		{       	
+			cancelAnimationFrame(requestId);
+			ctx[2].drawImage(image[2], 0, 0);
+		}
+
+
+
+
+function draw_wave()  //волна фотографии
+			{
+				speed += 0.05;
+				ctx[k].clearRect(0, 0, canvasWidth, canvasHeight); // очистка холста
+					
+				for (var i = 0; i < imgWidth; i++) { 
+					ctx[k].drawImage(
+						image[k], 
+				
+						i*imageSlice,   //позиция и размер холста
+						Math.sin((speed-i/20)*3),
+						imageSlice,
+						imgHeight,
+
+						i*imageSlice, //позиция и размер изображения
+						0,
+						imageSlice,
+						imgHeight
+					)
+					
+					}
+					requestId = requestAnimationFrame(draw_wave);				
+				}
+			

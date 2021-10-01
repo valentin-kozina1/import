@@ -213,14 +213,13 @@
 						<span class="negotiation-head-b">на себя</span>
 					</div>
 					<div class="negotiation-head-arrow">
-						<img class="negotiation-head-arrow-left" src="img/Arrow 2.png">
-						<img src="img/Arrow 1.png">
+						<img class="negotiation-head-arrow-left" id="left" src="img/Arrow 2.png">
+						<img id="right" src="img/Arrow 1.png">
 					</div>			
 				</div>
 				<div class="negotiation-foto">
-					<div class="negotiation-foto-first">
+					<div class="negotiation-foto-first" id="canvas-foto0">
     					<canvas class="canvas" id="canvas">
-    						<img src="img/negotiation-foto0.jpg">
     					</canvas> 					
 						<div class="negotiation-foto-text">
 							<span>Переговоры <br>с поставщиками</span>
@@ -230,11 +229,9 @@
 						</div>	
 					</div>
 					
-					<div class="negotiation-foto-second">
-						<canvas class="canvas desktop" id="canvas2">
-    						<img src="img/negotiation-foto1.jpg">
+					<div class="negotiation-foto-first desktop" id="canvas-foto1">
+						<canvas class="canvas desktop" id="canvas1">
     					</canvas>
-						<!-- <img class="negotiation-foto-second desktop" src="img/negotiation-foto2.jpg"> -->
 						<div class="negotiation-foto-text desktop">
 							<span>Оформление <br>статистики</span>
 						</div>
@@ -242,12 +239,9 @@
 							<span>Оформляя сделку через нашу белорусскую компанию, мы подаем статистику самостоятельно</span>
 						</div>	
 					</div>
-					<div class="negotiation-foto-second">
-						<canvas class="canvas desktop" id="canvas3">
-    						<img src="img/negotiation-foto2.jpg">
+					<div class="negotiation-foto-first desktop" id="canvas-foto2">
+						<canvas class="canvas desktop" id="canvas2">
     					</canvas>
-						<!-- <img class="negotiation-foto-second desktop" src="img/negotiation-foto3.jpg"> -->
-						<!-- <div class="negotiation-foto-second-fon"></div> -->
 					</div>
 				</div>
 				
@@ -321,14 +315,16 @@
 				<div class="container-contacts-text">
 					<span class="contacts-heading">Наши контакты</span>
 					<div class="contacts-countries">
-						<div class="contacts-Russia">
+						<div class="contacts-country contacts-countries-active" disabled>
 							<span>Россия</span>
 						</div>
-						<div class="contacts-Belarus">
+						<div class="contacts-country contacts-countries-nonactive">
 							<span>Беларусь</span>
 						</div>
 					</div>
-					<div class="contacts-adress">
+
+					<!-- adress Russia -->
+					<div class="contacts-adress-Russia">
 						<img src="img/Vector 31.png">
 						<div class="contacts-adress-definite">
 							<span class="contacts-name">Адрес:</span>
@@ -338,23 +334,56 @@
 							<span class="contacts-adress-definite-name">корп.2, офис 604а</span>
 						</div>
 					</div>
-					<div class="contacts-adress">
+					<div class="contacts-adress-Russia">
 						<img src="img/Vector 32.png">
 						<div class="contacts-adress-definite">
 							<span class="contacts-name">Телефон:</span>
 							<span class="contacts-adress-definite-name">+7 499 404-25-45</span>
 						</div>
 					</div>
+
+					<!-- adress Belorus -->
+					<div class="contacts-adress-Belorus nonactive">
+						<img src="img/Vector 31.png">
+						<div class="contacts-adress-definite">
+							<span class="contacts-name">Адрес:</span>
+							<span class="contacts-adress-definite-name">315074, Витебская область,</span>
+							<span class="contacts-adress-definite-name">г. Витебск,</span>
+							<span class="contacts-adress-definite-name">ул. Красного октября, 21</span>
+							<span class="contacts-adress-definite-name">офис 24</span>
+						</div>
+					</div>
+					<div class="contacts-adress-Belorus nonactive">
+						<img src="img/Vector 32.png">
+						<div class="contacts-adress-definite">
+							<span class="contacts-name">Телефон:</span>
+							<span class="contacts-adress-definite-name">+6 195 104-15-36</span>
+						</div>
+					</div>
+
+
 					<button class="consultation contacts-consultation callback">
 						<span>Перезвоните мне</span>
 					</button>
-					<div class="contacts-adress">
+
+					<!-- mail Russia -->
+					<div class="contacts-adress-Russia">
 						<img src="img/Vector 33.png">
 						<div class="contacts-adress-definite">
 							<span class="contacts-name">Email:</span>
 							<span class="contacts-adress-definite-name">mail@export.center</span>
 						</div>
 					</div>
+
+					<!-- mail Belorus -->
+					<div class="contacts-adress-Belorus nonactive">
+						<img src="img/Vector 33.png">
+						<div class="contacts-adress-definite">
+							<span class="contacts-name">Email:</span>
+							<span class="contacts-adress-definite-name">mail@export.belorus</span>
+						</div>
+					</div>
+
 				</div>
 
 				<div class="contacts-foto">
@@ -421,8 +450,7 @@
 
 	<script type="" src="js/callback-form.js"></script>
 	<script type="" src="js/feedback.js"></script>
-	<script type="" src="js/wave2.js"></script>
-	<!-- <script type="" src="js/curtains.min.js"></script>
-	<script type="" src="js/wave.js"></script> -->
+	<script type="" src="js/wave.js"></script>
+	<script type="" src="js/adress.js"></script>
 </body>
 </html>
