@@ -150,8 +150,8 @@ function draw()
 		{
 			canvas_foto[i].style.order--
 			if (canvas_foto[i].style.order<0) 
-				{
-					canvas_foto[i].style.order = 0
+				{console.log(canvas_foto[i])
+					canvas_foto[i].style.order = canvas.length-1
 					canvas_foto[i].classList.remove('desktop')
 				}
 				else
