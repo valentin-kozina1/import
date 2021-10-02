@@ -144,73 +144,90 @@ function draw()
 	}
 }
 
-	left.onclick = function()   //карусель фотографий
-	{ 
-		for (var i = 0; i <= canvas.length-1; i++) 
+left.onclick = function()   //карусель фотографий
+{ 
+	for (var i = 0; i <= canvas.length-1; i++) 
+	{
+		canvas_foto[i].style.order--
+		if (canvas_foto[i].style.order<0) 
 		{
-			canvas_foto[i].style.order--
-			if (canvas_foto[i].style.order<0) 
-				{console.log(canvas_foto[i])
-					canvas_foto[i].style.order = canvas.length-1
-					canvas_foto[i].classList.remove('desktop')
-				}
-				else
-				{
-					canvas_foto[i].classList.add('desktop') 
-				}
-		}		
+			canvas_foto[i].style.order = canvas.length-1	
+			text_left(i, 25)
+		}
+		else text_left(i, 185) 
+		karusel(i)
+	}		
+}
+
+right.onclick = function()    //карусель фотографий
+{	
+	for (var i = canvas.length - 1; i >= 0; i--) 
+	{ 
+		canvas_foto[i].style.order++
+		if (canvas_foto[i].style.order>canvas.length-1) 
+		{
+			canvas_foto[i].style.order = 0
+			text_left(i, 185)
+		}
+		else  text_left(i, 25) 
+		karusel(i)
 	}
+}
 
-	right.onclick = function()    //карусель фотографий
-	{	
-		for (var i = canvas.length - 1; i >= 0; i--) 
-		{ 
-			canvas_foto[i].style.order++
-			if (canvas_foto[i].style.order>canvas.length-1) 
-				{
-					canvas_foto[i].style.order = 0
-					canvas_foto[i].classList.remove('desktop')
-				}
-				else
-				{
-					canvas_foto[i].classList.add('desktop') 
-				}
-		}
-	}
+function text_left(num, left) 
+{
+	foto_text =
+	canvas_foto[num].getElementsByClassName('negotiation-foto-text')
+		
+	text = 
+	canvas_foto[num].getElementsByClassName('negotiation-text')
+
+	if (foto_text[0] && text[0]) 
+	{
+		Array.from(foto_text)[0].style.left = left+'px'
+		Array.from(text)[0].style.left = left+'px'
+	}	
+}
+
+function karusel(num)
+{
+	ord = canvas_foto[num].style.order
+	if (ord == 0) canvas_foto[num].classList.remove('desktop')
+		else canvas_foto[num].classList.add('desktop')
+}
 
 	
-		canvas[0].onmouseover = function()
-		{ 	k=0;
-			draw_wave();
-		}
-		canvas[1].onmouseover = function()
-		{ 	k=1;
-			draw_wave();
-		}
-		canvas[2].onmouseover = function()
-		{ 	k=2;
-			draw_wave();
-		}
+canvas[0].onmouseover = function()
+{ 	k=0;
+	draw_wave();
+}
+	canvas[1].onmouseover = function()
+{ 	k=1;
+	draw_wave();
+}
+	canvas[2].onmouseover = function()
+{ 	k=2;
+	draw_wave();
+}
 	
 	
-	
-		canvas[0].onmouseout = function()
-		{       	
-			cancelAnimationFrame(requestId);
-			ctx[0].drawImage(image[0], 0, 0);
-		}
+canvas[0].onmouseout = function()
+{       	
+	cancelAnimationFrame(requestId);
+	ctx[0].drawImage(image[0], 0, 0);
+}
 
-		canvas[1].onmouseout = function()
-		{       	
-			cancelAnimationFrame(requestId);
-			ctx[1].drawImage(image[1], 0, 0);
-		}
+canvas[1].onmouseout = function()
+{       	
+	cancelAnimationFrame(requestId);
+	ctx[1].drawImage(image[1], 0, 0);
+}
 
-		canvas[2].onmouseout = function()
-		{       	
-			cancelAnimationFrame(requestId);
-			ctx[2].drawImage(image[2], 0, 0);
-		}
+canvas[2].onmouseout = function()
+{       	
+	cancelAnimationFrame(requestId);
+	ctx[2].drawImage(image[2], 0, 0);
+}
 
 
 
