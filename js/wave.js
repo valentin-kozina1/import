@@ -152,9 +152,8 @@ left.onclick = function()   //карусель фотографий
 		if (canvas_foto[i].style.order<0) 
 		{
 			canvas_foto[i].style.order = canvas.length-1	
-			text_left(i, 25)
 		}
-		else text_left(i, 185) 
+		text_left(i, canvas_foto[i].style.order) 
 		karusel(i)
 	}		
 }
@@ -167,14 +166,13 @@ right.onclick = function()    //карусель фотографий
 		if (canvas_foto[i].style.order>canvas.length-1) 
 		{
 			canvas_foto[i].style.order = 0
-			text_left(i, 185)
 		}
-		else  text_left(i, 25) 
+		text_left(i, canvas_foto[i].style.order) 
 		karusel(i)
 	}
 }
 
-function text_left(num, left) 
+function text_left(num, or) 
 {
 	foto_text =
 	canvas_foto[num].getElementsByClassName('negotiation-foto-text')
@@ -183,7 +181,9 @@ function text_left(num, left)
 	canvas_foto[num].getElementsByClassName('negotiation-text')
 
 	if (foto_text[0] && text[0]) 
-	{
+	{ console.log(window.innerWidth)
+		if ((or < 2) && (window.innerWidth>999)) left = 185
+			else left = 25
 		Array.from(foto_text)[0].style.left = left+'px'
 		Array.from(text)[0].style.left = left+'px'
 	}	

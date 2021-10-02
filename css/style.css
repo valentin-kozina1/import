@@ -446,7 +446,7 @@ img {
     position: relative;
 }
 
-#canvas{
+#canvas, #canvas1, #canvas2{
     width: 300px;
     height: 180px;
     margin-left: 10px;
@@ -454,6 +454,10 @@ img {
 
 #canvas>img{
     margin-left: 10px;
+}
+
+#canvas2 {
+    margin-bottom: 155px;
 }
 
 .negotiation-foto-text {
@@ -1149,6 +1153,7 @@ img {
     font-size: 20px;
     top: 60px;
     left: 185px;
+    width: 90%;
 }
 
 .negotiation-text {
@@ -1159,6 +1164,7 @@ img {
     top: 125px;
     left: 185px;
     margin: 0;
+    width: 90%;
 }
 
 
