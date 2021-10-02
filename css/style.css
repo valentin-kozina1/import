@@ -1030,7 +1030,7 @@ img {
 }
 
 .favourite-business-tagline {
-    width: 1000px;
+    width: 970px;
     line-height: 66px;
     font-size: 60px;
     font-weight: 300;
@@ -1038,7 +1038,7 @@ img {
 }
 
 .favourite-business-import {
-    width: 1045px;
+    width: 970px;
     line-height: 66px;
     font-size: 60px;
     font-weight: 700;
@@ -1154,6 +1154,7 @@ img {
     top: 60px;
     left: 185px;
     width: 90%;
+    z-index: 1;
 }
 
 .negotiation-text {
@@ -1165,6 +1166,7 @@ img {
     left: 185px;
     margin: 0;
     width: 90%;
+    z-index: 1;
 }
 
 
@@ -1245,6 +1247,7 @@ img {
 
 .container-must-have {
     margin-left: 0;
+    width: 100%;
 }
 
 .must-have-heading {
@@ -1392,6 +1395,14 @@ img {
     font-weight: 300;  
     line-height: 24px;
     font-size: 14px;   
+}
+
+}
+
+@media only screen and (min-width: 1072px) {
+
+.favourite-business-import {
+    width: 1042px;
 }
 
 }

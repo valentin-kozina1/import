@@ -181,7 +181,7 @@ function text_left(num, or)
 	canvas_foto[num].getElementsByClassName('negotiation-text')
 
 	if (foto_text[0] && text[0]) 
-	{ console.log(window.innerWidth)
+	{ 
 		if ((or < 2) && (window.innerWidth>999)) left = 185
 			else left = 25
 		Array.from(foto_text)[0].style.left = left+'px'
