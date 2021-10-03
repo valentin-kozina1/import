@@ -5,8 +5,20 @@
 	<style></style>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/aos.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/wave.css"> -->
+	<!-- <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/stars.css">
+	не крутится страница при подключении этой анимации -->
 </head>
 <body>
+
+	<!-- не крутится страница при подключении этой анимации
+	<div id='stars'></div> 
+	<div id='stars2'></div>
+	<div id='stars3'></div> -->
+
+
 	<section class="front" id="front">
 		<div class="container">
 			<nav class="front-navigation">
@@ -45,10 +57,10 @@
 	<section class="for-you" id="for-you">
 		<div class="container">
 			<div class="for-you-main">
-				<div class="for-you-import">
+				<div class="for-you-import" data-aos="fade-down">
 					<span>Ваш импорт</span>
 				</div>
-				<div class="for-you-from">
+				<div class="for-you-from" data-aos="fade-down">
 					<span>из России</span>
 				</div>
 				<div class="for-you-why">
@@ -103,16 +115,16 @@
 					<img src="img/favourite-business.jpg">
 				</div>
 				<div class="favourite-business-text">
-					<div class="favourite-business-tagline">
+					<div class="favourite-business-tagline"	data-aos="fade-right" data-aos-delay="100">
 						<span>Тратьте свое время только на любимое дело!</span>
 					</div>
-					<div class="favourite-business-import">
+					<div class="favourite-business-import" data-aos="fade-right" data-aos-delay="200">
 						<span>Мы займемся импортом сами</span>
 					</div>
-					<div class="favourite-business-econom">
+					<div class="favourite-business-econom" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"   data-aos-delay="300" data-aos-offset="0">
 						<span>Вы можете еще больше экономить свое время на оформлении валютного контроля, статистики, подтверждении уплаты ввозного НДС или поиске необходимых специалистов.</span>
 					</div>
-					<div class="favourite-business-econom">
+					<div class="favourite-business-econom" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"   data-aos-delay="400" data-aos-offset="0">
 						<span>Получайте российский товар сразу по беларусским накладным с уже включенным НДС!</span>
 					</div>
 					<button class="consultation favourite-business-consultation callback">
@@ -131,7 +143,7 @@
 			</div>
 
 			<div class="scheme-of-work-step-block">
-				<div class="scheme-of-work-step">
+				<div class="scheme-of-work-step" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" data-aos-delay="100">
 					<div class="scheme-of-work-step-number">
 						<span>01.</span>
 					</div>
@@ -142,7 +154,7 @@
 						<span>Поставщик выставляет счет на реквизиты нашей российской компаниии присылает вместе со счетом договор.</span>
 					</div>
 				</div>
-				<div class="scheme-of-work-step">
+				<div class="scheme-of-work-step" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" data-aos-delay="300">
 					<div class="scheme-of-work-step-number">
 						<span>02.</span>
 					</div>
@@ -153,7 +165,7 @@
 						<span>Мы перевыставляем вам счет с учетом оговоренных условий и в необходимой валюте. А также подписываем с вами договор между нами.</span>
 					</div>
 				</div>
-				<div class="scheme-of-work-step">
+				<div class="scheme-of-work-step" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" data-aos-delay="500">
 					<div class="scheme-of-work-step-number">
 						<span>03.</span>
 					</div>
@@ -167,7 +179,7 @@
 			</div>
 			
 			<div class="scheme-of-work-step-block">
-				<div class="scheme-of-work-step">
+				<div class="scheme-of-work-step" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" data-aos-delay="100">
 					<div class="scheme-of-work-step-number">
 						<span>04.</span>
 					</div>
@@ -178,7 +190,7 @@
 						<span>Поставщик отгружает вашу продукцию и присылает документы в электронном виде. Мы оформляем накладные в ваш адрес для перевозки и получения груза. Продукция едит от поставщика напрямую к вам</span>
 					</div>
 				</div>
-				<div class="scheme-of-work-step">
+				<div class="scheme-of-work-step" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="300" data-aos-delay="300">
 					<div class="scheme-of-work-step-number">
 						<span>05.</span>
 					</div>
@@ -245,11 +257,11 @@
 					<img src="img/export.jpg">						
 				</div>
 				<div class="export-text">
-					<span class="export-text-heading">Ваш экспорт</span>
-					<span class="export-text-from">Из Белоруси</span>
-					<span class="export-text-quest export-text-quest-desktop">Хотите увеличить свои продажи?</span>
-					<span class="export-text-quest">Заявить о себе и своей продукции на весь мир?</span>
-					<span class="export-text-main">Это гараздо проще, чем Вам кажется! Вам даже не нужно задумываться о том, что такое экспорт и как это может быть страшно. Мы все сделаем сами, пока вы будете наслаждаться увеличением своего дохода и известностью продукции за рубежом.</span>
+					<span class="export-text-heading" data-aos="fade-left" data-aos-delay="100">Ваш экспорт</span>
+					<span class="export-text-from" data-aos="fade-left" data-aos-delay="300">Из Белоруси</span>
+					<span class="export-text-quest export-text-quest-desktop" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"   data-aos-delay="100" data-aos-offset="0">Хотите увеличить свои продажи?</span>
+					<span class="export-text-quest" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"   data-aos-delay="200" data-aos-offset="0">Заявить о себе и своей продукции на весь мир?</span>
+					<span class="export-text-main" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"   data-aos-delay="300" data-aos-offset="0">Это гараздо проще, чем Вам кажется! Вам даже не нужно задумываться о том, что такое экспорт и как это может быть страшно. Мы все сделаем сами, пока вы будете наслаждаться увеличением своего дохода и известностью продукции за рубежом.</span>
 				</div>				
 			</div>
 		</div>
@@ -261,33 +273,33 @@
 				<span class="must-have-heading">что для этого нужно</span>
 
 				<div class="must-have-step-block">
-					<div class="must-have-step">
+					<div class="must-have-step" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"data-aos-delay="10" data-aos-offset="0">
 						<img class="must-have-logo" src="img/Vector 21.png">
 						<span class="must-have-name">поиск хорошего клиента</span>
 						<span class="must-have-text">Самым первым шагом на пути к мировой известности стоит поиск клиентов. И хотя это не является нашей спецификой, но и не может стать помехой. Позвоните нам и, возможно, у нас уже есть какой-то вариант для вас</span>
 					</div>
 
-					<div class="must-have-step">
+					<div class="must-have-step" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"data-aos-delay="10" data-aos-offset="0">
 						<img class="must-have-logo" src="img/Vector 22.png">
 						<span class="must-have-name">согласование условий и договор</span>
 						<span class="must-have-text">Мы всегда стремимся подбирать индивидуальные условия для каждого клиента, исходя из его потребностей.</span>
 					</div>
 
-					<div class="must-have-step">
+					<div class="must-have-step" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"data-aos-delay="10" data-aos-offset="0">
 						<img class="must-have-logo" src="img/Vector 23.png">
 						<span class="must-have-name">заключение договора с клиентом</span>
 						<span class="must-have-text">Наша компания заключает договор с вашим клиентом за рубехом.</span>
 					</div>
 				</div>
 
-				<div class="must-have-step-block">
+				<div class="must-have-step-block" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"data-aos-delay="10" data-aos-offset="0">
 					<div class="must-have-step">
 						<img class="must-have-logo" src="img/Vector 24.png">
 						<span class="must-have-name">оплата счетов иностранным агентом</span>
 						<span class="must-have-text">Ваш иностранный клиент оплачивает полученный от нас счет, а мы опачиваем ваш (если иное не оговорено в индивидуальном порядке). Вы выставляете в наш адрес счет в белорусских рублях, как при обычной внутрибелорусской сделке.</span>
 					</div>		
 				
-					<div class="must-have-step">
+					<div class="must-have-step" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"data-aos-delay="10" data-aos-offset="0">
 						<img class="must-have-logo" src="img/Vector 25.png">
 						<span class="must-have-name">отгрузка товара и обмен документами</span>
 						<span class="must-have-text">Вы выписываете белорусскую накладную от нас. Мы предоставляем вам все необходимые документы для отправки транспорта и вы отправляете свой товар напрямую к покупателю.</span>
@@ -442,5 +454,7 @@
 	<script type="" src="js/wave.js"></script>
 	<script type="" src="js/adress.js"></script>
 	<script type="" src="js/scroll-to.js"></script>
+	<script type="" src="js/aos.js"></script>
+	<script type="" src="js/animation-on-scroll.js"></script>
 </body>
 </html>
