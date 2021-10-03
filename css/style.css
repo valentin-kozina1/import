@@ -436,6 +436,11 @@ img {
 
 .negotiation-head-arrow-left {
     margin-right: 15px;
+    cursor: pointer;
+}
+
+#right {
+    cursor: pointer;
 }
 
 .negotiation-foto {
