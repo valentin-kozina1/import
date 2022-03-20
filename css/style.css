@@ -744,8 +744,7 @@ img {
   font-weight: 400;
   font-size: 24px;
   line-height: 30px;
-  text-transform: uppercase;
-  
+  text-transform: uppercase; 
 }
 
 .modal>a {
@@ -766,7 +765,7 @@ img {
 .feedback-container {
     position: absolute;
     background-color: var(--c-black-light);
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
