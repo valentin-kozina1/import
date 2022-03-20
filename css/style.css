@@ -753,6 +753,11 @@ img {
     color: var(--txt-c-white);
 }
 
+.modal-close-btn {
+  top: -70px;
+  right: -20px;
+}
+
 .modal-close-btn-menu {
   font-size: 18px;
   position: absolute;
@@ -784,7 +789,7 @@ img {
   position: absolute;
   color: var(--c-white);
   top: -70px;
-  right: -20px;
+  right: 10px;
   cursor: pointer;
 }
 
